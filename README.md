@@ -1,4 +1,4 @@
-# gRPC-Web Hello World Guide
+# gRPC-Web-Parcel Hello World Guide
 
 This guide is intended to help you get started with gRPC-Web with a simple
 Hello World example. For more information about the gRPC-Web project as a
