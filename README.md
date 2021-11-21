@@ -1,14 +1,8 @@
 # gRPC-Web-Parcel Hello World Guide
 
-This guide is intended to help you get started with gRPC-Web with a simple
+This guide is intended to help you get started with gRPC-Web, Parcel bundler via a simple
 Hello World example. For more information about the gRPC-Web project as a
 whole, please visit the [main repo](https://github.com/grpc/grpc-web).
-
-All the code for this example can be found in this current directory.
-
-```sh
-$ cd net/grpc/gateway/examples/helloworld
-```
 
 ## Define the Service
 
