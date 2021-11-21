@@ -1,7 +1,7 @@
 {
-  "name": "grpc-web-simple-example",
+  "name": "grpc-web-parcel",
   "version": "0.1.0",
-  "description": "gRPC-Web simple example",
+  "description": "gRPC Web Parcel",
   "devDependencies": {
     "@grpc/grpc-js": "~1.1.8",
     "@grpc/proto-loader": "~0.5.4",
