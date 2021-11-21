@@ -281,16 +281,21 @@ To generate the protobuf messages and client service stub class from your
 > $ sudo chmod +x /usr/local/bin/protoc-gen-grpc-web
 > ```
 
-Linux:
+## Linux
 `protoc -`
-PB_REL="https://github.com/protocolbuffers/protobuf/releases"
-curl -LO $PB_REL/download/v3.15.8/protoc-3.15.8-linux-x86_64.zip
-unzip protoc-3.15.8-linux-x86_64.zip -d $HOME/.local
-export PATH="$PATH:$HOME/.local/bin"
+```sh
+$ PB_REL="https://github.com/protocolbuffers/protobuf/releases"
+$ curl -LO $PB_REL/download/v3.15.8/protoc-3.15.8-linux-x86_64.zip
+$ sudo apt install unzip
+$ unzip protoc-3.15.8-linux-x86_64.zip -d $HOME/.local
+$ export PATH="$PATH:$HOME/.local/bin"
+```
 
 `protoc-gen-grpc-web -`
-sudo mv protoc-gen-grpc-web-1.3.0-linux-x86_64 /usr/local/bin/protoc-gen-grpc-web
-chmod +x /usr/local/bin/protoc-gen-grpc-web
+```sh
+$ sudo mv protoc-gen-grpc-web-1.3.0-linux-x86_64 /usr/local/bin/protoc-gen-grpc-web
+$ chmod +x /usr/local/bin/protoc-gen-grpc-web
+```
 
 When you have both `protoc` and `protoc-gen-grpc-web` installed, you can now
 run this command:
