@@ -76,7 +76,7 @@ function getServer() {
 if (require.main === module) {
   var server = getServer();
   server.bindAsync(
-    '0.0.0.0:9090', grpc.ServerCredentials.createInsecure(), (err, port) => {
+    '0.0.0.0:6555', grpc.ServerCredentials.createInsecure(), (err, port) => {
       assert.ifError(err);
       server.start();
   });
@@ -90,7 +90,7 @@ exports.getServer = getServer;
 Next up, we need to configure the Envoy proxy to forward the browser's gRPC-Web
 requests to the backend. Put this in an `envoy.yaml` file. Here we configure
 Envoy to listen at port `:8080`, and forward any gRPC-Web requests to a
-cluster at port `:9090`.
+cluster at port `:6555`.
 
 ```yaml
 static_resources:
@@ -141,7 +141,7 @@ static_resources:
                 address:
                   socket_address:
                     address: 0.0.0.0
-                    port_value: 9090
+                    port_value: 6555
 ```
 
 > NOTE: As per [this issue](https://github.com/grpc/grpc-web/issues/436): if
@@ -334,19 +334,19 @@ statements and produce a `./dist/index.[hash].js` file that can be embedded in o
 We are ready to run the Hello World example. The following set of commands will
 run the 3 processes all in the background.
 
- 1. Run the NodeJS gRPC Service. This listens at port `:9090`.
+ 1. Run the NodeJS gRPC Service. This listens at port `:6555`.
 
  ```sh
  $ node server.js &
  ```
 
  2. Run the Envoy proxy. The `envoy.yaml` file configures Envoy to listen to
- browser requests at port `:8080`, and forward them to port `:9090` (see
+ browser requests at port `:8080`, and forward them to port `:6555` (see
  above).
 
  ```sh
  $ sudo docker run -d -v "$(pwd)"/envoy.yaml:/etc/envoy/envoy.yaml:ro \
-     --network=host envoyproxy/envoy:v1.17.0
+     --network=host envoyproxy/envoy:v1.20.0
  ```
 
 > NOTE: As per [this issue](https://github.com/grpc/grpc-web/issues/436):
@@ -354,7 +354,7 @@ run the 3 processes all in the background.
 >
 > ```sh
 > $ sudo docker run -d -v "$(pwd)"/envoy.yaml:/etc/envoy/envoy.yaml:ro \
->     -p 8080:8080 -p 9901:9901 envoyproxy/envoy:v1.17.0
+>     -p 8080:8080 -p 9901:9901 envoyproxy/envoy:v1.20.0
 >  ```
 
  3. Run the simple Web Server. Open VsCode from
