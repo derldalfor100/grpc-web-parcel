@@ -1,0 +1,5 @@
+dist/
+*_pb.js
+node_modules/
+package-lock.json
+.parcel-cache
