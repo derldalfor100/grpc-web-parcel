@@ -297,6 +297,8 @@ $ sudo mv protoc-gen-grpc-web-1.3.0-linux-x86_64 /usr/local/bin/protoc-gen-grpc-
 $ chmod +x /usr/local/bin/protoc-gen-grpc-web
 ```
 
+## Protoc
+
 When you have both `protoc` and `protoc-gen-grpc-web` installed, you can now
 run this command:
 
